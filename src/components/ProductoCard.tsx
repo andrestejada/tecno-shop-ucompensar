@@ -12,7 +12,7 @@ export const ProductoCard = ({ producto }: Props) => {
         <div className="img-container">
           <img src={producto.imagenUrl} alt="img" />
         </div>
-        <p>{producto.descripcion}</p>
+        <p style={{ height: "50px" }}>{producto.descripcion}</p>
         <p>
           Precio{": "}
           <span className="precio">

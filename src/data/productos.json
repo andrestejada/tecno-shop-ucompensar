@@ -1,0 +1,62 @@
+[
+  {
+    "id": "2d778ad4-957d-4769-b98d-58de897eaaca",
+    "titulo": "Computador Portatil HP Pavilion",
+    "precio": 1285166,
+    "descripcion": "Computador Portatil HP Pavilion Intel Core i5 1235U RAM 8 GB 512 GB SSD 15eg2519la",
+    "fechaPublicacion": "2023-04-06T11:03:02Z",
+    "marca": "HP",
+    "imagenUrl": "https://exitocol.vtexassets.com/arquivos/ids/21481862/Computador-Portatil-HP-Pavilion-Intel-Core-i5-1235U-RAM-8-GB-512-GB-SSD-15-eg2519la-3488673_a.jpg?v=638430217287700000",
+    "unidades": 8
+  },
+  {
+    "id": "2d778ad4-957d-4769-b98d-58de897eaacQ",
+    "titulo": "Computador LENOVO",
+    "precio": 2285166,
+    "descripcion": "Computador LENOVO IdeaPad Slim 3 Intel Core i5 12450H RAM 8 GB 512 GB SSD IdeaPad Slim 3",
+    "fechaPublicacion": "2023-04-06T11:03:02Z",
+    "marca": "LENOVO",
+    "imagenUrl": "https://exitocol.vtexassets.com/arquivos/ids/21302907/Computador-LENOVO-IdeaPad-Slim-3-Intel-Core-i5-8-Nucleos-8-GB-RAM-512-GB-SSD-3446487_a.jpg?v=638422360383700000",
+    "unidades": 2
+  },
+  {
+    "id": "2d778ad4-957d-4769-b98d-58de897eaacV",
+    "titulo": "Computador ACER Aspire",
+    "precio": 1800000,
+    "descripcion": "Computador ACER Aspire 5 Intel Core i5 12450H RAM 8 GB 512 GB SSD A51557579J",
+    "fechaPublicacion": "2023-04-06T11:03:02Z",
+    "marca": "LENOVO",
+    "imagenUrl": "https://exitocol.vtexassets.com/arquivos/ids/21476062/Computador-ACER-Aspire-5-Intel-Core-i5-8-Nucleos-8-GB-RAM-512-GB-SSD-3461699_a.jpg?v=638429935425700000",
+    "unidades": 9
+  },
+  {
+    "id": "2d778ad4-957d-4769-b98d-58de897FTacV",
+    "titulo": "Portatil Asus",
+    "precio": 1877900,
+    "descripcion": "Portatil Asus E1504fa Nj474 Ryzen 5 7520U Ram 16Gb Ssd 512Gb Pantalla 15,6 Pulgadas Fhd",
+    "fechaPublicacion": "2023-04-06T11:03:02Z",
+    "marca": "ASUS",
+    "imagenUrl": "https://exitocol.vtexassets.com/arquivos/ids/21042433/portatil-asus-e1504fa-nj474-ryzen-5-7520u-ram-16gb-ssd-512gb-pantalla-156-pulgadas-fhd-1026886880.jpg?v=638411203721630000",
+    "unidades": 15
+  },
+  {
+    "id": "2d778ad4-957d-4769-b98d-58de897FTacV",
+    "titulo": "MacBook Air APPLE",
+    "precio": 4112640,
+    "descripcion": "MacBook Air APPLE MGN63LA/A Apple M1 8 Núcleos 8 GB RAM 256 GB SSD",
+    "fechaPublicacion": "2023-04-06T11:03:02Z",
+    "marca": "Apple",
+    "imagenUrl": "https://exitocol.vtexassets.com/arquivos/ids/19715621/MacBook-Air-de13pulgadas-Ch-APPLE-MGN63LAA-3032542_a.jpg?v=638306369242470000",
+    "unidades": 8
+  },
+  {
+    "id": "2d778ad4-957d-4769-b98d-58de897FTacV",
+    "titulo": "Portatil Gaming Msi",
+    "precio": 5599000,
+    "descripcion": "Portatil Gaming Msi I7 12650H Rtx 4060 8Gb 512 Ssd 144 Hz 15.6",
+    "fechaPublicacion": "2023-04-06T11:03:02Z",
+    "marca": "msi",
+    "imagenUrl": "https://exitocol.vtexassets.com/arquivos/ids/18498613/portatil-gaming-msi-i7-12650h-rtx-4060-8gb-512-ssd-144-hz-156.jpg?v=638201268506400000",
+    "unidades": 4
+  }
+]

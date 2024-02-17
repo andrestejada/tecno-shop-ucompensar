@@ -29,7 +29,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -46,7 +46,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -70,12 +70,26 @@ button:focus-visible {
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
+  .sign-in {
+    border-radius: 5px;
+    padding: 3px;
+    color: #242424;
+    background-color: #747bff;
+    transition: 0.5s ease all;
+
+  }
+  .sign-in:hover {
+    cursor: pointer;
+    background-color: #4d55fe;
+    transition: 0.5s ease all;
+    color: #fff;
+  }
 }
 
 .productos-container {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   padding: 20px 10px;
 }
 
@@ -84,7 +98,9 @@ button:focus-visible {
   border: 1px solid rgb(190 190 190 / 14%);
   border-radius: 10px;
   box-shadow: 0px 0px 4px 1px #e1e1e1;
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   :hover {
     cursor: pointer;
     transition: 1s ease all;
@@ -93,12 +109,14 @@ button:focus-visible {
   h3 {
     text-align: center;
     font-weight: 800;
+    height: 80px;
   }
 
   h3,
   p {
     margin: 0;
   }
+
 }
 .precio {
   font-weight: 500;

@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { Producto } from "./components/Producto.tsx";
+import { ProductoPage } from "./components/Producto.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Login } from "./components/Login.tsx";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,11 @@ const router = createBrowserRouter([
   },
   {
     path: "producto/:id",
-    element: <Producto />,
+    element: <ProductoPage />,
+  },
+  {
+    path: "login",
+    element: <Login />,
   },
 ]);
 
