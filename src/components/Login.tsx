@@ -2,8 +2,11 @@ import React, { FormEventHandler } from "react";
 import { Navbar } from "./Navbar";
 import { useState } from "react";
 import { UseForm } from "../hooks/useForm";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  const navigate = useNavigate()
+  
   const [isLogin, setisLogin] = useState(true);
   const { values, reset, handleInputChange } = UseForm({
     contraseña: "",
@@ -12,7 +15,13 @@ export const Login = () => {
   });
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(values);
+    if (values.contraseña.trim() === "" || values.email.trim() === "") {
+      return;
+    }
+
+    navigate('/crear-productos')
+
+
   };
   return (
     <>

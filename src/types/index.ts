@@ -8,3 +8,16 @@ export interface Producto {
   unidades: number;
   fechaPublicacion: string | Date;
 }
+
+export interface Usuario {
+  id: string;
+  nombre: string;
+  correo: string;
+  contraseña: string;
+}
+
+export interface Comentario {
+  id: string;
+  contenido: string;
+  fecha_prublicacion: string | Date;
+}
