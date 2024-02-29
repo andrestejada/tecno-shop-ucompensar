@@ -10,7 +10,7 @@ export const ProductoCard = ({ producto }: Props) => {
       <section className="producto-card-container">
         <h3>{producto.titulo}</h3>
         <div className="img-container">
-          <img src={producto.imagenUrl} alt="img" />
+          <img src={producto.imagen_url} alt="img" />
         </div>
         <p style={{ height: "50px" }}>{producto.descripcion}</p>
         <p>

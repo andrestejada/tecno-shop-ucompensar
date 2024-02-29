@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "./Navbar";
 import { UseForm } from "../hooks/useForm";
+import { productoRepository } from "../repository/productoRepository";
+import { Marca, Producto, ProductoGuardar } from "../types";
+import { marcaRepository } from "../repository/marcaRepository";
 
 export const CrearProductos = () => {
+  const [listadoMarcas, setListadoMarcas] = useState<Marca[]>([]);
+  const [listadoProductos, setListadoProductos] = useState<Producto[]>([]);
   const { values, reset, handleInputChange } = UseForm({
     titulo: "",
     imagenUrl: "",
@@ -11,9 +16,33 @@ export const CrearProductos = () => {
     marca: "",
     unidades: "",
   });
-  const onSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    marcaRepository.listarMarcas().then((res) => {
+      setListadoMarcas(res);
+    });
+
+    listarProductos();
+  }, []);
+
+  const listarProductos = async () => {
+    const productos = await productoRepository.listarProductos();
+    setListadoProductos(productos);
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    reset();
+
+    const producto: ProductoGuardar = {
+      titulo: values.titulo,
+      imagenUrl: values.imagenUrl,
+      descripcion: values.descripcion,
+      precio: Number(values.precio),
+      marcaId: Number(values.marca),
+      unidades: Number(values.unidades),
+    };
+    const res = await productoRepository.crearProducto(producto);
+    console.log(res);
+    //reset();
   };
   return (
     <>
@@ -47,16 +76,23 @@ export const CrearProductos = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="marca">Marca</label>
-            <input
+            <label htmlFor="marca">marca</label>
+            <select
+              name="marca"
               onChange={handleInputChange}
               value={values.marca}
-              name="marca"
-              type="marca"
-              className="form-control"
-              id="marca"
-              placeholder="marca del dispositivo"
-            />
+              className="form-select form-control"
+              aria-label="Default select example"
+            >
+              <option>Selecciona una marca</option>
+              {listadoMarcas.map((marca) => (
+                <>
+                  <option key={marca.id} value={marca.id}>
+                    {marca.nombre}
+                  </option>
+                </>
+              ))}
+            </select>
           </div>
           <div className="form-group">
             <label htmlFor="precio">precio</label>
@@ -68,6 +104,18 @@ export const CrearProductos = () => {
               className="form-control"
               id="precio"
               placeholder="precio del dispositivo"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="unidades">unidades</label>
+            <input
+              onChange={handleInputChange}
+              value={values.unidades}
+              name="unidades"
+              type="number"
+              className="form-control"
+              id="unidades"
+              placeholder="unidades del dispositivo"
             />
           </div>
           <div className="form-group">
@@ -87,6 +135,31 @@ export const CrearProductos = () => {
             Crear Producto
           </button>
         </form>
+        <h2 className="text-center mb-5">Listado de productos</h2>
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Titulo</th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Unidades</th>
+              <th scope="col">Accciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listadoProductos.map((producto) => (
+              <tr key={producto.id}>
+                <td>{producto.titulo}</td>
+                <td>{producto.descripcion}</td>
+                <td>{producto.precio}</td>
+                <td>{producto.unidades}</td>
+                <button type="button" className="btn btn-danger">
+                  Borrar
+                </button>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
