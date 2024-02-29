@@ -1,21 +1,28 @@
 export interface Producto {
-  id: string;
+  id: number;
   titulo: string;
-  imagen_url: string;
+  imagenUrl: string;
   descripcion: string;
   precio: number;
-  marca: string;
+  marca: {
+    id: number;
+    name: string;
+  };
   unidades: number;
   fecha_publicacion: string | Date;
 }
 
-export interface ProductoGuardar {
+export interface CrearProductoDTO {
   titulo: string;
   imagenUrl: string;
   descripcion: string;
   precio: number;
   marcaId: number;
   unidades: number;
+}
+
+export interface ActualizarProductoDTO extends CrearProductoDTO {
+  id: number;
 }
 
 export interface Usuario {

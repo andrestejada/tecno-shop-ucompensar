@@ -2,54 +2,47 @@ import React, { useEffect, useState } from "react";
 import { Navbar } from "./Navbar";
 import { UseForm } from "../hooks/useForm";
 import { productoRepository } from "../repository/productoRepository";
-import { Marca, Producto, CrearProductoDTO } from "../types";
+import { Marca, Producto, ActualizarProductoDTO } from "../types";
 import { marcaRepository } from "../repository/marcaRepository";
-import { TablaProductos } from "./TablaProductos";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export const CrearProductos = () => {
+interface Props {
+  producto?: ActualizarProductoDTO;
+}
+export const EditarProducto = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const producto = location.state as Producto;
   const [listadoMarcas, setListadoMarcas] = useState<Marca[]>([]);
-  const [listadoProductos, setListadoProductos] = useState<Producto[]>([]);
-  const { values, reset, handleInputChange } = UseForm({
-    titulo: "Computador Portatil HP Pavilion",
-    imagenUrl:
-      "https://exitocol.vtexassets.com/arquivos/ids/21481862/Computador-Portatil-HP-Pavilion-Intel-Core-i5-1235U-RAM-8-GB-512-GB-SSD-15-eg2519la-3488673_a.jpg?v=638430217287700000",
-    descripcion:
-      "Computador Portatil HP Pavilion Intel Core i5 1235U RAM 8 GB 512 GB SSD 15eg2519la",
-    precio: 200000,
-    marca: 1,
-    unidades: 10,
+  const { values, reset, handleInputChange } = UseForm<ActualizarProductoDTO>({
+    id: producto.id,
+    titulo: producto.titulo,
+    imagenUrl: producto.imagenUrl,
+    descripcion: producto.descripcion,
+    precio: producto.precio,
+    marcaId: producto.marca.id,
+    unidades: producto.unidades,
   });
   useEffect(() => {
     marcaRepository.listarMarcas().then((res) => {
       setListadoMarcas(res);
     });
-
-    listarProductos();
   }, []);
-
-  const listarProductos = async () => {
-    const productos = await productoRepository.listarProductos();
-    setListadoProductos(productos);
-  };
-
-  const borrarProducto = async (productoId: number) => {
-    await productoRepository.borrarProducto(productoId);
-    await listarProductos();
-  };
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const producto: CrearProductoDTO = {
+    const productoEditar: ActualizarProductoDTO = {
+      id: values.id,
       titulo: values.titulo,
       imagenUrl: values.imagenUrl,
       descripcion: values.descripcion,
       precio: Number(values.precio),
-      marcaId: Number(values.marca),
+      marcaId: Number(values.marcaId),
       unidades: Number(values.unidades),
     };
-    const res = await productoRepository.crearProducto(producto);
-    await listarProductos();
+    await productoRepository.actualizarProducto(productoEditar);
     reset();
+    navigate("/crear-productos", {});
   };
   return (
     <>
@@ -87,7 +80,7 @@ export const CrearProductos = () => {
             <select
               name="marca"
               onChange={handleInputChange}
-              value={values.marca}
+              value={values.marcaId}
               className="form-select form-control"
               aria-label="Default select example"
             >
@@ -139,13 +132,9 @@ export const CrearProductos = () => {
           </div>
 
           <button type="submit" className="btn btn-primary ">
-            Crear Producto
+            Editar Producto
           </button>
         </form>
-        <TablaProductos
-          borrarProducto={borrarProducto}
-          listadoProductos={listadoProductos}
-        />
       </div>
     </>
   );

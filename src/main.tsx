@@ -6,6 +6,7 @@ import { ProductoPage } from "./components/Producto.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Login } from "./components/Login.tsx";
 import { CrearProductos } from "./components/CrearProductos.tsx";
+import { EditarProducto } from "./components/EditarProducto.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "crear-productos",
     element: <CrearProductos />,
+  },
+  {
+    path: "editar-producto",
+    element: <EditarProducto />,
   },
 ]);
 

@@ -14,7 +14,7 @@ export const ProductoPage = () => {
       "Computador Portatil HP Pavilion Intel Core i5 1235U RAM 8 GB 512 GB SSD 15eg2519la",
     fecha_publicacion: "2023-04-06T11:03:02Z",
     marca: "HP",
-    imagen_url:
+    imagenUrl:
       "https://exitocol.vtexassets.com/arquivos/ids/21481862/Computador-Portatil-HP-Pavilion-Intel-Core-i5-1235U-RAM-8-GB-512-GB-SSD-15-eg2519la-3488673_a.jpg?v=638430217287700000",
     unidades: 8,
   });
@@ -32,7 +32,7 @@ export const ProductoPage = () => {
         <h3 className="mt-5">{producto.titulo}</h3>
         <div className="producto-info">
           <div className="img-container">
-            <img src={producto.imagen_url} alt={producto.titulo} />
+            <img src={producto.imagenUrl} alt={producto.titulo} />
           </div>
           <section>
             <p className="font-weight-bold">Descripcion:</p>
