@@ -50,7 +50,7 @@ export const EditarProducto = () => {
 
       <div style={{ padding: "10px" }}>
         <form className="mt-5" onSubmit={onSubmit}>
-          <h2 className="text-center">Crear Producto</h2>
+          <h2 className="text-center">Editar Producto</h2>
           <div className="form-group">
             <label htmlFor="titulo">Titulo</label>
             <input
