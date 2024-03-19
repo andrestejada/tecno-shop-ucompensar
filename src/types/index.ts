@@ -31,6 +31,11 @@ export interface Usuario {
   correo: string;
   password: string;
 }
+export interface LoginDto {
+  id: string;
+  nombre: string;
+  correo: string;
+}
 
 export interface Comentario {
   id: string;

@@ -12,6 +12,7 @@ interface Props {
 export const EditarProducto = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(location)
   const producto = location.state as Producto;
   const [listadoMarcas, setListadoMarcas] = useState<Marca[]>([]);
   const { values, reset, handleInputChange } = UseForm<ActualizarProductoDTO>({

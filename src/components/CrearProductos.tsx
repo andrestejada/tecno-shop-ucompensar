@@ -5,8 +5,11 @@ import { productoRepository } from "../repository/productoRepository";
 import { Marca, Producto, CrearProductoDTO } from "../types";
 import { marcaRepository } from "../repository/marcaRepository";
 import { TablaProductos } from "./TablaProductos";
+import { useLocation } from "react-router-dom";
 
 export const CrearProductos = () => {
+  const location = useLocation();
+  console.log(location)
   const [listadoMarcas, setListadoMarcas] = useState<Marca[]>([]);
   const [listadoProductos, setListadoProductos] = useState<Producto[]>([]);
   const { values, reset, handleInputChange } = UseForm({

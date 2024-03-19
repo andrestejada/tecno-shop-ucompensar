@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "crear-productos",
-    element: <CrearProductos />,
+    element: <CrearProductos />,    
   },
   {
     path: "editar-producto",
