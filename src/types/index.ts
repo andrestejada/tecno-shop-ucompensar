@@ -19,6 +19,7 @@ export interface CrearProductoDTO {
   precio: number;
   marcaId: number;
   unidades: number;
+  usuarioId: number;
 }
 
 export interface ActualizarProductoDTO extends CrearProductoDTO {

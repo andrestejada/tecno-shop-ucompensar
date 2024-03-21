@@ -5,7 +5,7 @@ import { productoRepository } from "../repository/productoRepository";
 import { Marca, Producto, CrearProductoDTO } from "../types";
 import { marcaRepository } from "../repository/marcaRepository";
 import { TablaProductos } from "./TablaProductos";
-import { useLocation } from "react-router-dom";
+import { redirect, useLocation } from "react-router-dom";
 
 export const CrearProductos = () => {
   const location = useLocation();
@@ -13,14 +13,14 @@ export const CrearProductos = () => {
   const [listadoMarcas, setListadoMarcas] = useState<Marca[]>([]);
   const [listadoProductos, setListadoProductos] = useState<Producto[]>([]);
   const { values, reset, handleInputChange } = UseForm({
-    titulo: "Computador Portatil HP Pavilion",
+    titulo: "",
     imagenUrl:
-      "https://exitocol.vtexassets.com/arquivos/ids/21481862/Computador-Portatil-HP-Pavilion-Intel-Core-i5-1235U-RAM-8-GB-512-GB-SSD-15-eg2519la-3488673_a.jpg?v=638430217287700000",
+      "",
     descripcion:
-      "Computador Portatil HP Pavilion Intel Core i5 1235U RAM 8 GB 512 GB SSD 15eg2519la",
-    precio: 200000,
-    marca: 1,
-    unidades: 10,
+      "",
+    precio: 0,
+    marca: 0,
+    unidades: 0,
   });
   useEffect(() => {
     marcaRepository.listarMarcas().then((res) => {
@@ -49,11 +49,16 @@ export const CrearProductos = () => {
       precio: Number(values.precio),
       marcaId: Number(values.marca),
       unidades: Number(values.unidades),
+      usuarioId:Number(location.state.id)
     };
-    const res = await productoRepository.crearProducto(producto);
+    
+    await productoRepository.crearProducto(producto);
     await listarProductos();
     reset();
   };
+  // if(!location.state.id){
+  //   redirect('/')
+  // }
   return (
     <>
       <Navbar />
